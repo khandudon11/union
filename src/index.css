@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 220 14% 20%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 14% 20%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 14% 20%;
+    --primary: 350 85% 49%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 203 100% 37%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+    --accent: 45 75% 47%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 350 85% 49%;
+    --radius: 0.5rem;
+    --sidebar-background: 215 50% 23%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 350 85% 49%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 215 50% 28%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 215 50% 33%;
+    --sidebar-ring: 350 85% 49%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  body {
+    @apply bg-gray-50 text-foreground antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+  }
+}
+
+@layer components {
+  .risk-badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+  .risk-badge-critical {
+    @apply bg-red-100 text-red-700 border border-red-200;
+  }
+  .risk-badge-high {
+    @apply bg-orange-100 text-orange-700 border border-orange-200;
+  }
+  .risk-badge-medium {
+    @apply bg-amber-100 text-amber-700 border border-amber-200;
+  }
+  .risk-badge-low {
+    @apply bg-green-100 text-green-700 border border-green-200;
+  }
+  
+  .channel-badge {
+    @apply inline-flex items-center px-2 py-0.5 rounded text-xs font-medium;
+  }
+  
+  .sidebar-item {
+    @apply flex items-center gap-3 px-4 py-3 text-sm text-white/80 hover:text-white hover:bg-white/5 transition-all cursor-pointer;
+  }
+  .sidebar-item.active {
+    @apply text-white bg-white/10 border-l-2 border-ubi-red;
+  }
+  
+  .stat-card {
+    @apply bg-white rounded-lg p-5 shadow-card hover:shadow-hover transition-shadow;
+  }
+  
+  .data-table {
+    @apply w-full text-sm;
+  }
+  .data-table th {
+    @apply px-4 py-3 text-left font-medium text-gray-500 bg-gray-50 border-b;
+  }
+  .data-table td {
+    @apply px-4 py-3 border-b border-gray-100;
+  }
+  .data-table tr:hover {
+    @apply bg-gray-50/50;
+  }
+  
+  .page-transition {
+    @apply animate-fade-in;
+  }
+
+  .btn-primary {
+    @apply bg-ubi-red hover:bg-ubi-red-dark text-white font-medium px-4 py-2 rounded-lg transition-colors;
+  }
+
+  .btn-secondary {
+    @apply bg-ubi-blue hover:bg-ubi-blue-dark text-white font-medium px-4 py-2 rounded-lg transition-colors;
+  }
+
+  .btn-outline {
+    @apply border border-gray-300 hover:bg-gray-50 text-gray-700 font-medium px-4 py-2 rounded-lg transition-colors;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-ubi-red to-ubi-blue;
+  }
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+  }
+}
+
+/* React Flow Custom Styles */
+.react-flow__node {
+  @apply font-mono text-xs;
+}
+.react-flow__edge-path {
+  stroke-width: 2;
+}
+.react-flow__controls {
+  @apply shadow-lg;
+}
+.react-flow__minimap {
+  @apply rounded-lg shadow-lg;
+}
+
+/* Custom Scrollbar for Tables */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #a1a1a1;
+}
+
+/* Toast Custom Styles */
+[data-sonner-toast] {
+  --normal-bg: white;
+  --normal-text: #1f2937;
+  --normal-border: #e5e7eb;
+}
